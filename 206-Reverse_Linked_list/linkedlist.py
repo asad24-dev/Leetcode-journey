@@ -1,4 +1,4 @@
-def reverseList(head):
+def reverseList(cmdhead):
         """
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
