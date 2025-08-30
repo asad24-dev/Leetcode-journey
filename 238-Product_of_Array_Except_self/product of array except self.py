@@ -3,20 +3,16 @@ def productExceptSelf(nums):
         :type nums: List[int]
         :rtype: List[int]
         """
-        retval = 1
-        j = 0
-        listret = []
+        retlist = [1] * len(nums)
+        prefix = 1
         for i in range(len(nums)):
-            retval = 1
-            while j < len(nums):
-                if j == i:
-                    j += 1
-                else:
-                    retval = retval * nums[j]
-                    j += 1
-            j = 0
-            listret.append(retval)
-        return listret
+            retlist[i] = prefix
+            prefix *= nums[i]
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            retlist[i] *= postfix
+            postfix *= nums[i]
+        return retlist
 
 print(productExceptSelf([1,2,3,4])) # [24,12,8,6]
 
