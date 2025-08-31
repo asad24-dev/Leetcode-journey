@@ -5,6 +5,8 @@ def find_median(a, b):
     isEven = (len(a) + len(b)) % 2 == 0
     prev1 = float('-inf')
     prev2 = 0
+    if (len(a) == 0 and len(b) == 0):
+        return None
     while((a_pointer < len(a) or b_pointer < len(b)) and (curr_length <= ((len(a) + len(b)) / 2))):
         if (b_pointer>=len(b) or a[a_pointer] <= b[b_pointer]):
             prev2 = prev1
@@ -22,7 +24,7 @@ def find_median(a, b):
         return (prev1 + prev2) / 2
     return prev1
 
-a = [1, 5, 7]
-b = [2, 3, 10]
+a = [1, 7, 8, 9]
+b = [2, 4]
 #[1,2,3,5,7,10] median = 4
 print(find_median(a,b))
