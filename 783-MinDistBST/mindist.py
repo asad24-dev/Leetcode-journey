@@ -10,23 +10,23 @@ class Solution(object):
         :rtype: int
         """
         diff = float('inf')
+        prev = None
         def dfs(node):
-            nonlocal diff
+            nonlocal diff, prev
             if not node:
                 return
             dfs(node.left)
-            if node.left:
-                diff = min(diff, node.val - node.left.val)
-            if node.right:
-                diff = min(diff, node.right.val - node.val)
+            if prev:
+                diff = min(diff, node.val - prev.val)
+            prev = node
             dfs(node.right)
         dfs(root)
         return diff
-#[1,0,48,null,null,12,49]
-tree = TreeNode(9)
-tree.left = TreeNode(0)
-tree.right = TreeNode(48)
-tree.right.left = TreeNode(12)
-tree.right.right = TreeNode(56)
+#[90,69,null,49,89,null,52]
+tree = TreeNode(90)
+tree.left = TreeNode(69)
+tree.left.left = TreeNode(49)
+tree.left.right = TreeNode(89)
+tree.left.left.right = TreeNode(52)
 
 print(Solution().minDiffInBST(tree))
