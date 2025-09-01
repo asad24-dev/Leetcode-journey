@@ -24,8 +24,7 @@ root.right = TreeNode(3)
 root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
 root.right.right = TreeNode(6)
-root.left.right.left = TreeNode(7)
-
+root.right.right.right = TreeNode(8)
 print(printleftview(root))
 
 
